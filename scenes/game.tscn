@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://byxlhudhrxv3n" path="res://scenes/floor.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bhjpvxfsff2le" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cxpd25ym6ohfy" path="res://scenes/obstacles/box.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bm2qsvcf46cgk" path="res://scenes/pickables/coin.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D" unique_id=415042533]
 
@@ -17,10 +18,18 @@ spawn_obstacle_timer = NodePath("SpawnObstacleTimer")
 wait_time = 2.0
 one_shot = true
 
-[node name="Floor" parent="." unique_id=1785990640 instance=ExtResource("1_yqjtg")]
+[node name="Constraints" type="Node2D" parent="." unique_id=642189955]
+
+[node name="Floor" parent="Constraints" unique_id=1785990640 instance=ExtResource("1_yqjtg")]
 position = Vector2(0, 680)
+
+[node name="Ceiling" parent="Constraints" unique_id=1855177905 instance=ExtResource("1_yqjtg")]
+position = Vector2(0, 40)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=2065923773]
 
 [node name="Player" parent="." unique_id=1274040976 instance=ExtResource("2_lnu2h")]
-position = Vector2(132, 638)
+position = Vector2(410, 638)
+
+[node name="Coin" parent="." unique_id=2067151749 instance=ExtResource("5_iywne")]
+position = Vector2(926, 364)

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://fwlp5saf0dgf"]
-
-[ext_resource type="Script" uid="uid://dswpx65548tij" path="res://scripts/moving_obstacle.gd" id="1_rr5ek"]
-
-[node name="MovingObstacle" type="Node2D" unique_id=1614815954]
-script = ExtResource("1_rr5ek")

@@ -1,5 +1,8 @@
 # Jetpack Joyride
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/deejeezz/2_jetpack_joyride/deploy-itch.yml)
+![GitHub Tag](https://img.shields.io/github/v/tag/deejeezz/2_jetpack_joyride)
+
 https://20_games_challenge.gitlab.io/games/jetpack/
 
 ## Description

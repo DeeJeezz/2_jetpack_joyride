@@ -8,6 +8,7 @@ class_name GameManager
 
 
 var _screen_size: Vector2
+var _coins: int = 0
 
 
 func _ready() -> void:
@@ -16,19 +17,27 @@ func _ready() -> void:
 	# Setup signals.
 	spawn_obstacle_timer.timeout.connect(_on_spawn_obstacle_timer_timeout)
 	spawn_obstacle_timer.start(randf() * 3)
+	
+	# Connecting signals.
+	Signals.coin_pickup.connect(_on_coin_pickup)
 
 
 func _spawn_obstacle() -> void:
 	var random_obstacle_scene: PackedScene = obstacles_scenes.pick_random()
 	var random_obstacle: Node2D = random_obstacle_scene.instantiate()
-	var positions = [100, _screen_size.y - 100]
 	random_obstacle.position = Vector2(
 		_screen_size.x + 400,
-		positions.pick_random(),
+		randf_range(0, _screen_size.y),
 	)
 	obstacles_container.add_child(random_obstacle)
 	
-
+#region Signals
 func _on_spawn_obstacle_timer_timeout() -> void:
 	_spawn_obstacle()
 	spawn_obstacle_timer.start(randf() * 3)
+	
+	
+func _on_coin_pickup() -> void:
+	_coins += 1
+	print(_coins)
+#endregion

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxpd25ym6ohfy"]
 
-[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_obstacle.tscn" id="1_fbrij"]
+[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_object.tscn" id="1_fbrij"]
 
 [sub_resource type="Gradient" id="Gradient_gqu2d"]
 
@@ -12,6 +12,8 @@ width = 128
 size = Vector2(128, 128)
 
 [node name="Box" type="StaticBody2D" unique_id=760260855]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002924433]
 scale = Vector2(1, 128)

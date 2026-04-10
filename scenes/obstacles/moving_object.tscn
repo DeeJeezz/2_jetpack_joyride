@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fwlp5saf0dgf"]
+
+[ext_resource type="Script" uid="uid://dswpx65548tij" path="res://scripts/moving_object.gd" id="1_ao35t"]
+
+[node name="MovingObject" type="Node2D" unique_id=1614815954]
+script = ExtResource("1_ao35t")
