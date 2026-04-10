@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bsalwlp8cpylj"]
+
+[ext_resource type="Texture2D" uid="uid://bjsf6hb05p2jx" path="res://assets/img/spikes/horizontal_base.png" id="1_w6dgc"]
+[ext_resource type="Texture2D" uid="uid://kyfbybc6xsji" path="res://assets/img/spikes/horizontal_axle.png" id="2_oujxn"]
+[ext_resource type="Texture2D" uid="uid://b08dry5f2dsne" path="res://assets/img/spikes/avoidable_roller/avoidable_spike_roller_just_roller_03.png" id="3_klbcy"]
+[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_object.tscn" id="4_oujxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdm8p"]
+size = Vector2(32, 96)
+
+[node name="StaticSpike" type="StaticBody2D" unique_id=192681918]
+
+[node name="HorizontalBase" type="Sprite2D" parent="." unique_id=2071742207]
+position = Vector2(56.000004, -18.5)
+scale = Vector2(0.2, 0.15925926)
+texture = ExtResource("1_w6dgc")
+
+[node name="HorizontalAxle" type="Sprite2D" parent="." unique_id=862240500]
+position = Vector2(29.300007, 0)
+scale = Vector2(0.1130293, 0.2)
+texture = ExtResource("2_oujxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246260290]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_klbcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=49209665]
+shape = SubResource("RectangleShape2D_xdm8p")
+
+[node name="MovingObject" parent="." unique_id=1614815954 node_paths=PackedStringArray("obstacle_object") instance=ExtResource("4_oujxn")]
+speed = 600.0
+obstacle_object = NodePath("..")
