@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cxpd25ym6ohfy"]
+
+[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_obstacle.tscn" id="1_fbrij"]
+
+[sub_resource type="Gradient" id="Gradient_gqu2d"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fbrij"]
+gradient = SubResource("Gradient_gqu2d")
+width = 128
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa8is"]
+size = Vector2(128, 128)
+
+[node name="Box" type="StaticBody2D" unique_id=760260855]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002924433]
+scale = Vector2(1, 128)
+texture = SubResource("GradientTexture1D_fbrij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561875496]
+shape = SubResource("RectangleShape2D_qa8is")
+
+[node name="MovingObstacle" parent="." unique_id=1614815954 node_paths=PackedStringArray("obstacle_object") instance=ExtResource("1_fbrij")]
+obstacle_object = NodePath("..")

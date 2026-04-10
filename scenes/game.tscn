@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://0xih20gx71a8"]
+
+[ext_resource type="PackedScene" uid="uid://iud21d8rqv6m" path="res://scenes/game_manager.tscn" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://byxlhudhrxv3n" path="res://scenes/floor.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bhjpvxfsff2le" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cxpd25ym6ohfy" path="res://scenes/obstacles/box.tscn" id="3_lnu2h"]
+
+[node name="Game" type="Node2D" unique_id=415042533]
+
+[node name="GameManager" parent="." unique_id=980185709 node_paths=PackedStringArray("obstacles_container", "spawn_obstacle_timer") instance=ExtResource("1_lnu2h")]
+position = Vector2(1042, 610)
+obstacles_scenes = Array[PackedScene]([ExtResource("3_lnu2h")])
+obstacles_container = NodePath("../Obstacles")
+spawn_obstacle_timer = NodePath("SpawnObstacleTimer")
+
+[node name="SpawnObstacleTimer" type="Timer" parent="GameManager" unique_id=590891164]
+wait_time = 2.0
+one_shot = true
+
+[node name="Floor" parent="." unique_id=1785990640 instance=ExtResource("1_yqjtg")]
+position = Vector2(0, 680)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=2065923773]
+
+[node name="Player" parent="." unique_id=1274040976 instance=ExtResource("2_lnu2h")]
+position = Vector2(132, 638)
