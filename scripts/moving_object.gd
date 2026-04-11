@@ -10,3 +10,4 @@ func _process(delta: float) -> void:
 	obstacle_object.position.x -= speed * delta
 	if obstacle_object.position.x <= _DESTROY_BORDER:
 		obstacle_object.queue_free()
+ 

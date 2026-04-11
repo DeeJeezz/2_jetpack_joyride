@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qrx6erudu3aq" path="res://assets/img/knight/JUMP.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://ds7p4ew3etkch" path="res://assets/img/knight/RUN.png" id="3_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cp5xn46mkmr33" path="res://assets/sfx/jump.wav" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://5mcb376raawi" path="res://assets/sfx/explosion.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -118,11 +119,15 @@ animations = [{
 radius = 16.0
 height = 80.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1274040976 node_paths=PackedStringArray("animated_sprite", "jump_sfx")]
+[node name="Player" type="RigidBody2D" unique_id=2068696538 node_paths=PackedStringArray("animated_sprite", "jump_sfx", "death_sfx")]
+collision_layer = 4
 collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_3vyb7")
 animated_sprite = NodePath("AnimatedSprite2D")
 jump_sfx = NodePath("JumpSFX")
+death_sfx = NodePath("DeathSFX")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1407191902]
 position = Vector2(0, -4.7683716e-07)
@@ -137,3 +142,9 @@ shape = SubResource("CapsuleShape2D_3vyb7")
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1991548757]
 stream = ExtResource("4_dqkch")
 volume_db = -10.0
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=1493587571]
+stream = ExtResource("5_qlg0r")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

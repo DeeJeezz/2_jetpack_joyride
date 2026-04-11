@@ -53,10 +53,13 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y24yd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4to3r"]
 size = Vector2(32, 96)
 
-[node name="StaticRollingSpike" type="StaticBody2D" unique_id=392667159]
+[node name="StaticRollingSpike" type="StaticBody2D" unique_id=392667159 groups=["Obstacle"]]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 4
 
 [node name="VerticalAxle" type="Sprite2D" parent="." unique_id=83751527]
 position = Vector2(0, 78.6)
@@ -76,9 +79,13 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("12_cxcqp")
 flip_v = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873446075]
+[node name="SpikeCollisionShape2D" type="CollisionShape2D" parent="." unique_id=873446075]
 position = Vector2(0, 104)
-shape = SubResource("RectangleShape2D_y24yd")
+shape = SubResource("RectangleShape2D_4to3r")
+
+[node name="BaseCollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1638860340]
+position = Vector2(0, 85.5)
+polygon = PackedVector2Array(-28, -85.5, 28, -85.5, 17, -64.5, 7, -64.5, 7, 66.5, -8, 66.5, -8, -64.5, -17, -64.5)
 
 [node name="MovingObject" parent="." unique_id=1614815954 node_paths=PackedStringArray("obstacle_object") instance=ExtResource("13_6j27c")]
 position = Vector2(0, 106.600006)
@@ -89,4 +96,4 @@ obstacle_object = NodePath("..")
 min_y = 104.0
 max_y = 200.0
 target = NodePath("../AnimatedSprite2D")
-target_collision = NodePath("../CollisionShape2D")
+target_collision = NodePath("../SpikeCollisionShape2D")

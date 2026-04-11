@@ -18,12 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signals="*uid://ch6ud8gh8p0ts"
+GameStats="*uid://bbat07yx42w6"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Obstacle=""
+Floor=""
 
 [input]
 
@@ -37,6 +43,7 @@ jump={
 
 2d_physics/layer_1="Floor"
 2d_physics/layer_2="Obstacles"
+2d_physics/layer_3="Player"
 
 [physics]
 

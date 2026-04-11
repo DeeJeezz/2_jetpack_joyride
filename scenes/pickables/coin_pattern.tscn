@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://e1hkni11fxf5"]
+
+[ext_resource type="PackedScene" uid="uid://bm2qsvcf46cgk" path="res://scenes/pickables/coin.tscn" id="1_ydwcs"]
+[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_object.tscn" id="2_4ioil"]
+
+[node name="CoinPattern" type="Node2D" unique_id=247694775]
+
+[node name="Coin" parent="." unique_id=2067151749 instance=ExtResource("1_ydwcs")]
+
+[node name="Coin2" parent="." unique_id=1742823270 instance=ExtResource("1_ydwcs")]
+position = Vector2(64, 0)
+
+[node name="Coin3" parent="." unique_id=2124910691 instance=ExtResource("1_ydwcs")]
+position = Vector2(128, 0)
+
+[node name="Coin4" parent="." unique_id=583686806 instance=ExtResource("1_ydwcs")]
+position = Vector2(192, 0)
+
+[node name="Coin5" parent="." unique_id=654842720 instance=ExtResource("1_ydwcs")]
+position = Vector2(256, 0)
+
+[node name="MovingObject" parent="." unique_id=1614815954 node_paths=PackedStringArray("obstacle_object") instance=ExtResource("2_4ioil")]
+speed = 600.0
+obstacle_object = NodePath("..")

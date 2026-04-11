@@ -2,10 +2,12 @@ extends Node2D
 class_name GameManager
 
 
+@export var parallaxes: Array[Parallax2D]
 
+
+@export_category("Obstacles")
 @export var edge_obstacle_scenes: Array[PackedScene]
 @export var middle_obstacle_scenes: Array[PackedScene]
-
 @export var obstacles_container: Node2D
 @export var spawn_obstacle_timer: Timer
 
@@ -16,13 +18,13 @@ var _coins: int = 0
 
 func _ready() -> void:
 	_screen_size = get_viewport_rect().size
-	
 	# Setup signals.
 	spawn_obstacle_timer.timeout.connect(_on_spawn_obstacle_timer_timeout)
 	spawn_obstacle_timer.start(randf() * 3)
 	
 	# Connecting signals.
 	Signals.coin_pickup.connect(_on_coin_pickup)
+	Signals.game_over.connect(_on_game_over)
 
 
 func _spawn_edge_obstacle() -> void:
@@ -55,5 +57,9 @@ func _on_spawn_obstacle_timer_timeout() -> void:
 	
 func _on_coin_pickup() -> void:
 	_coins += 1
-	print(_coins)
+
+
+func _on_game_over() -> void:
+	parallaxes.map(func(element): element.autoscroll.x = 0)
+	obstacles_container.process_mode = Node.PROCESS_MODE_DISABLED
 #endregion

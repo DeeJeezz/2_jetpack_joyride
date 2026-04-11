@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bm2qsvcf46cgk"]
 
 [ext_resource type="Script" uid="uid://m35pe0g74jof" path="res://scripts/coin.gd" id="1_yi4re"]
-[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_object.tscn" id="2_1t47n"]
 [ext_resource type="Texture2D" uid="uid://djojo1ugcrp54" path="res://assets/img/coin.png" id="2_vjdjk"]
 [ext_resource type="AudioStream" uid="uid://bjm1wfxoqqpmi" path="res://assets/sfx/coin.wav" id="4_3v2wx"]
 
@@ -60,7 +59,7 @@ radius = 14.0
 
 [node name="Coin" type="Node2D" unique_id=2067151749 node_paths=PackedStringArray("sfx", "area")]
 script = ExtResource("1_yi4re")
-sfx = NodePath("AudioStreamPlayer2D")
+sfx = NodePath("PickupSFX")
 area = NodePath("Area2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=699477495]
@@ -70,15 +69,13 @@ autoplay = "default"
 frame_progress = 0.61083764
 
 [node name="Area2D" type="Area2D" parent="." unique_id=356721048]
+collision_layer = 0
+collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=757349209]
 shape = SubResource("CircleShape2D_a75ra")
 
-[node name="MovingObject" parent="." unique_id=1614815954 node_paths=PackedStringArray("obstacle_object") instance=ExtResource("2_1t47n")]
-speed = 600.0
-obstacle_object = NodePath("..")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=108184064]
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="." unique_id=108184064]
 stream = ExtResource("4_3v2wx")
 volume_db = -10.0
