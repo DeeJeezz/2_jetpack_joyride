@@ -4,16 +4,19 @@ class_name Player
 
 const _FLOOR_GROUP_NAME: String = "Floor"
 const _OBSTACLE_GROUP_NAME: String = "Obstacle"
-const JETPACK_VELOCITY: float = 2000
+const JETPACK_VELOCITY: float = 2200
 
 
 @export var animated_sprite: AnimatedSprite2D
+
+@export var distance_timer: Timer
 
 @export_category("SFX")
 @export var jump_sfx: AudioStreamPlayer2D
 @export var death_sfx: AudioStreamPlayer2D
 
 var _is_on_floor: bool = true
+
 
 func _ready() -> void:
 	animated_sprite.play("run")
@@ -25,6 +28,7 @@ func _play_animation(animation_name: String) -> void:
 
 
 func death() -> void:
+	distance_timer.timeout.disconnect(_on_distance_timer_timeout)
 	Signals.game_over.emit()
 	death_sfx.play()
 	visible = false
@@ -56,3 +60,7 @@ func _on_body_entered(body: Node2D) -> void:
 		death()
 	elif body.is_in_group(_FLOOR_GROUP_NAME):
 		_is_on_floor = true
+
+
+func _on_distance_timer_timeout() -> void:
+	Signals.meter_passed.emit()

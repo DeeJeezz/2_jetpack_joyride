@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dw0tdn1ne0ol8"]
+
+[ext_resource type="Script" uid="uid://byqwjgglth6re" path="res://scripts/ui.gd" id="1_f5cxw"]
+[ext_resource type="LabelSettings" uid="uid://l57f76ctvpjj" path="res://resources/label_settings/game_name_label.tres" id="1_u7n8c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5cxw"]
+bg_color = Color(0.13007864, 0.13007876, 0.13007867, 0.73333335)
+
+[node name="UI" type="CanvasLayer" unique_id=745449628 node_paths=PackedStringArray("game_over_panel", "current_score_label", "max_score_label")]
+script = ExtResource("1_f5cxw")
+game_over_panel = NodePath("GameOverPanel")
+current_score_label = NodePath("GameOverPanel/CurrentScoreLabel")
+max_score_label = NodePath("GameOverPanel/MaxScoreLabel")
+
+[node name="GameOverPanel" type="Panel" parent="." unique_id=2008067272]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f5cxw")
+
+[node name="GameNameLabel" type="Label" parent="GameOverPanel" unique_id=352283193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -130.0
+offset_right = 150.5
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jetpack Joyride"
+label_settings = ExtResource("1_u7n8c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScoreLabel" type="Label" parent="GameOverPanel" unique_id=482921553]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -36.0
+offset_right = 68.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current score: %s"
+
+[node name="MaxScoreLabel" type="Label" parent="GameOverPanel" unique_id=458317857]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -4.5
+offset_right = 54.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Max score: %s"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel" unique_id=23828964]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = 40.0
+offset_right = 32.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="GameOverPanel/VBoxContainer" unique_id=452418770]
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="GameOverPanel/VBoxContainer" unique_id=531111626]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_down" from="GameOverPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="GameOverPanel/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

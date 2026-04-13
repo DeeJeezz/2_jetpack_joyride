@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://cbd80xenws37t" path="res://assets/music/time_for_adventure.mp3" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bctis2qaldf38" path="res://assets/img/world/world_tileset.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://e1hkni11fxf5" path="res://scenes/pickables/coin_pattern.tscn" id="7_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bfkswcxyxhxp4" path="res://scenes/ui/hud.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dw0tdn1ne0ol8" path="res://scenes/ui/ui.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("7_u5sy4")
@@ -203,12 +205,14 @@ position = Vector2(696, 616)
 [node name="CoinPattern2" parent="Pickables" unique_id=706260410 instance=ExtResource("7_vtaks")]
 position = Vector2(1344, 608)
 
-[node name="GameManager" parent="." unique_id=980185709 node_paths=PackedStringArray("parallaxes", "obstacles_container", "spawn_obstacle_timer") instance=ExtResource("1_lnu2h")]
+[node name="GameManager" parent="." unique_id=980185709 node_paths=PackedStringArray("parallaxes", "obstacles_container", "spawn_obstacle_timer", "hud", "ui") instance=ExtResource("1_lnu2h")]
 position = Vector2(1042, 610)
 parallaxes = [NodePath("../Background"), NodePath("../MiddleGround"), NodePath("../Foreground"), NodePath("../Ground")]
 edge_obstacle_scenes = Array[PackedScene]([ExtResource("2_p57ef")])
 obstacles_container = NodePath("../Obstacles")
 spawn_obstacle_timer = NodePath("SpawnObstacleTimer")
+hud = NodePath("../HUD")
+ui = NodePath("../UI")
 
 [node name="SpawnObstacleTimer" type="Timer" parent="GameManager" unique_id=590891164]
 wait_time = 2.0
@@ -218,3 +222,7 @@ one_shot = true
 stream = ExtResource("6_p57ef")
 volume_db = -25.0
 autoplay = true
+
+[node name="HUD" parent="." unique_id=1704241641 instance=ExtResource("11_kvpfn")]
+
+[node name="UI" parent="." unique_id=745449628 instance=ExtResource("12_dinhu")]

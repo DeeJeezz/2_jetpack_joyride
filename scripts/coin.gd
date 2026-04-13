@@ -14,6 +14,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	Signals.coin_pickup.emit()
 	visible = false
 	var last_coin_picked_up_at: float = Time.get_ticks_msec() - GameStats.last_coin_picked_up_at
 	if last_coin_picked_up_at < 150:
