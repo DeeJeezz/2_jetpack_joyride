@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bfkswcxyxhxp4" path="res://scenes/ui/hud.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dw0tdn1ne0ol8" path="res://scenes/ui/ui.tscn" id="12_dinhu"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dinhu"]
+polygon = PackedVector2Array(1280, 680, 1280, 736, 0, 736, 0, 680)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("7_u5sy4")
 0:0/0 = 0
@@ -174,6 +177,9 @@ autoscroll = Vector2(-300, 0)
 position = Vector2(639.99994, 360)
 scale = Vector2(4.705882, 4.5)
 texture = ExtResource("3_vtaks")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1446050870]
+occluder = SubResource("OccluderPolygon2D_dinhu")
 
 [node name="Ground" type="Parallax2D" parent="." unique_id=1060102143]
 repeat_size = Vector2(1280, 0)

@@ -9,6 +9,9 @@ const JETPACK_VELOCITY: float = 2200
 
 @export var animated_sprite: AnimatedSprite2D
 
+@export_category("VFX")
+@export var fly_particles: GPUParticles2D
+
 @export_category("SFX")
 @export var jump_sfx: AudioStreamPlayer2D
 @export var death_sfx: AudioStreamPlayer2D
@@ -41,6 +44,7 @@ func _process(delta: float) -> void:
 			_play_animation("jump")
 		else:
 			_play_animation("fall")
+			fly_particles.emitting = false
 	else:
 		_play_animation("run")
 
@@ -50,6 +54,8 @@ func _process(delta: float) -> void:
 		if _is_on_floor:
 			jump_sfx.play()
 			_is_on_floor = false
+		else:
+			fly_particles.emitting = true
 
 
 func _on_body_entered(body: Node2D) -> void:
