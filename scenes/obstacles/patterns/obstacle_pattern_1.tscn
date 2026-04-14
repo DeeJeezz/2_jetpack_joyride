@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://b7qw16lrbutdo"]
+
+[ext_resource type="Texture2D" uid="uid://ll7jardj2esa" path="res://assets/img/spikes/vertical_axle.png" id="1_nkwaj"]
+[ext_resource type="Script" uid="uid://dswpx65548tij" path="res://scripts/moving_object.gd" id="1_oku8l"]
+[ext_resource type="SpriteFrames" uid="uid://cx6kwj44whtf7" path="res://resources/animations/roller/roller_animation.tres" id="2_qm1lf"]
+[ext_resource type="Texture2D" uid="uid://bqyrmodg84psx" path="res://assets/img/spikes/vertical_base.png" id="12_kr233"]
+
+[sub_resource type="Animation" id="Animation_oku8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w3q63"]
+resource_name = "rotating"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 3.1415927, 4.712389, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fogn"]
+_data = {
+&"RESET": SubResource("Animation_oku8l"),
+&"rotating": SubResource("Animation_w3q63")
+}
+
+[node name="ObstaclePattern1" type="Node2D" unique_id=367206270]
+script = ExtResource("1_oku8l")
+speed = 600.0
+metadata/_custom_type_script = "uid://dswpx65548tij"
+
+[node name="RollerObstacle" type="StaticBody2D" parent="." unique_id=1821367024 groups=["Obstacle"]]
+position = Vector2(112, 660)
+
+[node name="Axle" type="Sprite2D" parent="RollerObstacle" unique_id=1072430868]
+position = Vector2(0, -82)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_nkwaj")
+
+[node name="Roller" type="AnimatedSprite2D" parent="RollerObstacle" unique_id=1380988461]
+position = Vector2(0, -209.00002)
+scale = Vector2(0.25, 0.28125006)
+sprite_frames = ExtResource("2_qm1lf")
+autoplay = "default"
+frame_progress = 0.38966447
+
+[node name="Base" type="Sprite2D" parent="RollerObstacle" unique_id=676181719]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kr233")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RollerObstacle" unique_id=1680578001]
+polygon = PackedVector2Array(17, -138, 9, -138, 9, -14, 21, -14, 36, 13, -36, 13, -21, -12, -10, -13, -10, -138, -18, -138, -18, -277, 17, -277)
+
+[node name="RollerObstacle2" type="StaticBody2D" parent="." unique_id=51938779 groups=["Obstacle"]]
+position = Vector2(208, 30)
+rotation = -3.1415925
+
+[node name="Axle" type="Sprite2D" parent="RollerObstacle2" unique_id=98933140]
+position = Vector2(-4.7683716e-06, -58)
+scale = Vector2(0.25, 0.18438229)
+texture = ExtResource("1_nkwaj")
+
+[node name="Roller" type="AnimatedSprite2D" parent="RollerObstacle2" unique_id=155691918]
+position = Vector2(-2.0000138, -112)
+scale = Vector2(0.21682231, 0.23395331)
+sprite_frames = ExtResource("2_qm1lf")
+autoplay = "default"
+frame_progress = 0.29143617
+
+[node name="Base" type="Sprite2D" parent="RollerObstacle2" unique_id=1047818713]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kr233")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RollerObstacle2" unique_id=476951086]
+position = Vector2(-1.0000038, 29)
+scale = Vector2(0.71936655, 0.71936655)
+polygon = PackedVector2Array(20.851685, -113.98918, 13.901123, -113.98918, 13.901154, -58.3847, 31.972595, -58.384705, 52.82428, -22.241798, -47.263794, -22.241783, -27.802216, -58.384693, -11.12088, -58.384697, -12.511017, -113.989174, -22.24179, -113.989174, -22.24179, -276.63226, 19.461548, -276.6323)
+
+[node name="RollerObstacle3" type="StaticBody2D" parent="." unique_id=1071005855 groups=["Obstacle"]]
+position = Vector2(875, 30)
+rotation = -3.1415925
+
+[node name="Axle" type="Sprite2D" parent="RollerObstacle3" unique_id=1717249262]
+position = Vector2(-7.54979e-06, -74)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_nkwaj")
+
+[node name="Roller" type="AnimatedSprite2D" parent="RollerObstacle3" unique_id=2133381028]
+position = Vector2(-1.0000339, -115)
+scale = Vector2(0.25506222, 0.23395331)
+sprite_frames = ExtResource("2_qm1lf")
+autoplay = "default"
+frame_progress = 0.33036402
+
+[node name="Base" type="Sprite2D" parent="RollerObstacle3" unique_id=1471476713]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kr233")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RollerObstacle3" unique_id=1375190791]
+polygon = PackedVector2Array(17, -56, 9, -56, 9, -14, 21, -14, 36, 13, -36, 13, -21, -12, -10, -13, -10, -55.999992, -20, -55.999992, -19.000061, -173, 18.999939, -173.00002)
+
+[node name="RollerObstacle4" type="StaticBody2D" parent="." unique_id=188451945 groups=["Obstacle"]]
+position = Vector2(1051, 660)
+
+[node name="Axle" type="Sprite2D" parent="RollerObstacle4" unique_id=666368066]
+position = Vector2(1, -101.00001)
+scale = Vector2(0.3068182, 0.3068182)
+texture = ExtResource("1_nkwaj")
+
+[node name="Roller" type="AnimatedSprite2D" parent="RollerObstacle4" unique_id=425193911]
+position = Vector2(-3.0517578e-05, -266.00003)
+scale = Vector2(0.35882357, 0.3291274)
+sprite_frames = ExtResource("2_qm1lf")
+autoplay = "default"
+frame_progress = 0.33036402
+
+[node name="Base" type="Sprite2D" parent="RollerObstacle4" unique_id=1394755750]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kr233")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RollerObstacle4" unique_id=1870343171]
+polygon = PackedVector2Array(24, -185, 12, -185, 12, -14, 21, -14, 36, 13, -36, 13, -21, -12, -11, -12, -12, -185, -24, -185, -24, -348, 24, -348)
+
+[node name="RotatingRollerObstacle" type="StaticBody2D" parent="." unique_id=1003294046 groups=["Obstacle"]]
+position = Vector2(544, 328)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotatingRollerObstacle" unique_id=1756173632]
+position = Vector2(10.625, 18.503403)
+scale = Vector2(0.32227892, 0.32227892)
+sprite_frames = ExtResource("2_qm1lf")
+autoplay = "default"
+frame_progress = 0.9471932
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotatingRollerObstacle" unique_id=328840190]
+libraries/ = SubResource("AnimationLibrary_0fogn")
+autoplay = &"rotating"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatingRollerObstacle" unique_id=425474193]
+position = Vector2(11, 226)
+polygon = PackedVector2Array(23, -127, -24, -127, -24, -287, 23, -287)

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bhai2jvt51psx"]
-
-[ext_resource type="Script" uid="uid://rb2wva1aiahu" path="res://scripts/obstacle_randomizer.gd" id="1_lg23t"]
-
-[node name="ObstacleRandomizer" type="Node2D" unique_id=1174221672]
-script = ExtResource("1_lg23t")

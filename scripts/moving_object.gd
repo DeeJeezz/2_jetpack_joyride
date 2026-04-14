@@ -1,13 +1,17 @@
 extends Node2D
-
-const _DESTROY_BORDER: float = -50.0
+class_name MovingObject
 
 @export var speed: float = 400.0
-@export var obstacle_object: Node2D
+
+var _destroy_border_x: float = -50.0
+
+
+func _ready() -> void:
+	_destroy_border_x -= get_viewport_rect().size.x 
 
 
 func _process(delta: float) -> void:
-	obstacle_object.position.x -= speed * delta
-	if obstacle_object.position.x <= _DESTROY_BORDER:
-		obstacle_object.queue_free()
+	position.x -= speed * delta
+	if position.x <= _destroy_border_x:
+		queue_free()
  

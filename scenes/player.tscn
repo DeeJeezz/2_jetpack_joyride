@@ -125,6 +125,8 @@ height = 80.0
 [node name="Player" type="RigidBody2D" unique_id=2068696538 node_paths=PackedStringArray("animated_sprite", "fly_particles", "jump_sfx", "death_sfx")]
 collision_layer = 4
 collision_mask = 3
+can_sleep = false
+lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_3vyb7")
@@ -135,6 +137,7 @@ death_sfx = NodePath("DeathSFX")
 
 [node name="FlyParticles" type="GPUParticles2D" parent="." unique_id=872637772]
 position = Vector2(-14, 3)
+emitting = false
 amount = 25
 sub_emitter = NodePath("GPUParticles2D")
 texture = ExtResource("6_fjrip")
