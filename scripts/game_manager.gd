@@ -4,7 +4,6 @@ class_name GameManager
 
 @export var parallaxes: Array[Parallax2D]
 
-
 @export_category("Obstacles")
 @export var edge_obstacle_scenes: Array[PackedScene]
 @export var middle_obstacle_scenes: Array[PackedScene]
@@ -83,8 +82,7 @@ func _on_meter_passed() -> void:
 
 
 func _on_game_over() -> void:
-	parallaxes.map(func(element): element.autoscroll.x = 0)
-	obstacles_container.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
 	
 	var last_max_score: int = SaveManager.last_session.get("max_score", 0)
 	if _score > last_max_score:
@@ -101,9 +99,11 @@ func _on_game_over() -> void:
 	
 
 func _on_restart_game() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 	
 func _on_quit_game() -> void:
+	get_tree().paused = false
 	get_tree().quit()
 #endregion
