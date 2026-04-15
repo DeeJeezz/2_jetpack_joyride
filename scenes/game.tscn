@@ -288,8 +288,8 @@ occluder = SubResource("OccluderPolygon2D_dinhu")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=2065923773]
 
-[node name="ObstaclePattern1" parent="Obstacles" unique_id=1741349718 instance=ExtResource("4_e1j6l")]
-position = Vector2(1416, 0)
+[node name="ObstaclePattern1" parent="Obstacles" unique_id=367206270 instance=ExtResource("4_e1j6l")]
+position = Vector2(1520, 0)
 
 [node name="Ground" type="Parallax2D" parent="." unique_id=1060102143]
 repeat_size = Vector2(1280, 0)
@@ -305,7 +305,7 @@ tile_set = SubResource("TileSet_0tnpc")
 [node name="Floor" parent="Constraints" unique_id=1785990640 groups=["Floor"] instance=ExtResource("1_yqjtg")]
 position = Vector2(0, 674)
 
-[node name="Ceiling" parent="Constraints" unique_id=1855177905 instance=ExtResource("1_yqjtg")]
+[node name="Ceiling" parent="Constraints" unique_id=1855177905 groups=["Ceiling"] instance=ExtResource("1_yqjtg")]
 position = Vector2(0, 30)
 
 [node name="Player" parent="." unique_id=1274040976 instance=ExtResource("2_lnu2h")]
@@ -334,5 +334,9 @@ volume_db = -25.0
 [node name="HUD" parent="." unique_id=1704241641 instance=ExtResource("11_kvpfn")]
 
 [node name="UI" parent="." unique_id=745449628 instance=ExtResource("12_dinhu")]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=207064226]
+energy = 0.35
+blend_mode = 1
 
 [connection signal="timeout" from="GameManager/DistanceTimer" to="GameManager" method="_on_meter_passed"]

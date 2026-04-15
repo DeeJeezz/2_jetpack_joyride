@@ -3,6 +3,7 @@ class_name Player
 
 
 const _FLOOR_GROUP_NAME: String = "Floor"
+const _CEILING_GROUP_NAME: String = "Ceiling"
 const _OBSTACLE_GROUP_NAME: String = "Obstacle"
 const JETPACK_VELOCITY: float = 2200
 
@@ -59,7 +60,12 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	# Touch obstacle.
 	if body.is_in_group(_OBSTACLE_GROUP_NAME):
 		death()
+	# Touch floor.
 	elif body.is_in_group(_FLOOR_GROUP_NAME):
 		_is_on_floor = true
+	# Touch ceiling.
+	elif body.is_in_group(_CEILING_GROUP_NAME):
+		linear_velocity.y = get_gravity().y / 2.5

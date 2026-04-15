@@ -16,22 +16,27 @@ class_name GameManager
 
 
 var _screen_size: Vector2
-var _coins: int: 
+var _coins: int:
+	get:
+		return GameGlobals.current_coins
 	set(value):
-		_coins = value
+		GameGlobals.current_coins = value
 		hud.set_coins(_coins)
 		
 var _score: int:
+	get:
+		return GameGlobals.current_score
 	set(value):
-		_score = value
+		GameGlobals.current_score = value
 		hud.set_score(_score)
 
 
 func _ready() -> void:
-	_screen_size = get_viewport_rect().size
-	SaveManager.load_last_session()
-	_coins = SaveManager.last_session.get("coins", 0)
 	_score = 0
+	GameGlobals.start_game()
+	_coins = GameGlobals.current_coins
+	
+	_screen_size = get_viewport_rect().size
 	
 	# Connecting signals.
 	Signals.coin_pickup.connect(_on_coin_pickup)
@@ -52,19 +57,8 @@ func _on_meter_passed() -> void:
 
 func _on_game_over() -> void:
 	get_tree().paused = true
-	
-	var last_max_score: int = SaveManager.last_session.get("max_score", 0)
-	if _score > last_max_score:
-		last_max_score = _score
-		
-	ui.game_over(_score, last_max_score)
-	SaveManager.save_current_session(
-		 {
-			"coins": _coins,
-			"last_score": _score,
-			"max_score": last_max_score,
-		}
-	)
+	GameGlobals.save_game()
+	ui.game_over(_score, GameGlobals.record_score)
 	
 
 func _on_restart_game() -> void:
