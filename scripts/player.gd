@@ -5,7 +5,7 @@ class_name Player
 const _FLOOR_GROUP_NAME: String = "Floor"
 const _CEILING_GROUP_NAME: String = "Ceiling"
 const _OBSTACLE_GROUP_NAME: String = "Obstacle"
-const JETPACK_VELOCITY: float = 2200
+const JETPACK_VELOCITY: float = 2100
 
 
 @export var animated_sprite: AnimatedSprite2D
@@ -70,4 +70,4 @@ func _on_body_entered(body: Node2D) -> void:
 		linear_velocity.y = 0
 	# Touch ceiling.
 	elif body.is_in_group(_CEILING_GROUP_NAME):
-		linear_velocity.y = get_gravity().y / 2.5
+		linear_velocity.y = get_gravity().y / 4

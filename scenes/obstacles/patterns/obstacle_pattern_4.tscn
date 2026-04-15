@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c23girpfsyma2"]
+
+[ext_resource type="Script" uid="uid://dswpx65548tij" path="res://scripts/moving_object.gd" id="1_xkfm2"]
+[ext_resource type="PackedScene" uid="uid://b4gl6bkhsh7qb" path="res://scenes/obstacles/rotating_roller_obstacle.tscn" id="2_p1sym"]
+
+[node name="ObstaclePattern4" type="Node2D" unique_id=752431484]
+script = ExtResource("1_xkfm2")
+metadata/_custom_type_script = "uid://dswpx65548tij"
+
+[node name="RotatingRollerObstacle" parent="." unique_id=1779643137 instance=ExtResource("2_p1sym")]
+position = Vector2(605, 346)
+scale = Vector2(3.2, 3.2)
+speed = 30.0

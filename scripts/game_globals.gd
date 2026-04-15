@@ -1,6 +1,9 @@
 extends Node
 
 
+const START_GAME_SPEED: float = 600.0
+
+
 var last_coin_picked_up_at: float = 0.0
 var last_coins_picked_up: int = 0
 
@@ -9,7 +12,7 @@ var record_score: int = 0
 var current_coins: int = 0
 
 
-var base_game_speed: float = 600.0
+var base_game_speed: float = START_GAME_SPEED
 
 
 func start_game() -> void:
@@ -29,8 +32,9 @@ func save_game() -> void:
 			"max_score": record_score,
 		}
 	)
+	base_game_speed = START_GAME_SPEED
 
 
 func increase_game_speed() -> void:
-	base_game_speed += 100
+	base_game_speed += 75
 	Signals.game_speed_increased.emit()

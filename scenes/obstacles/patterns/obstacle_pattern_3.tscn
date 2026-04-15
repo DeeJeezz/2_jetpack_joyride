@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bswywf4uyysvr"]
+
+[ext_resource type="Script" uid="uid://dswpx65548tij" path="res://scripts/moving_object.gd" id="1_rnsmb"]
+[ext_resource type="PackedScene" uid="uid://cy7b0gmrms0av" path="res://scenes/obstacles/roller_obstacle.tscn" id="2_hlnym"]
+[ext_resource type="PackedScene" uid="uid://b4gl6bkhsh7qb" path="res://scenes/obstacles/rotating_roller_obstacle.tscn" id="3_o7c1a"]
+
+[node name="ObstaclePattern3" type="Node2D" unique_id=2031703984]
+script = ExtResource("1_rnsmb")
+metadata/_custom_type_script = "uid://dswpx65548tij"
+
+[node name="RollerObstacle" parent="." unique_id=1779643137 instance=ExtResource("2_hlnym")]
+position = Vector2(146, 552)
+rotation = 0.18089865
+scale = Vector2(1.2, 1.2)
+
+[node name="RollerObstacle3" parent="." unique_id=1222303199 instance=ExtResource("2_hlnym")]
+position = Vector2(241.00005, 161.99988)
+rotation = -0.1857075
+scale = Vector2(1.1, 1.1)
+
+[node name="RollerObstacle4" parent="." unique_id=210168287 instance=ExtResource("2_hlnym")]
+position = Vector2(1104, 593)
+rotation = -0.8674396
+scale = Vector2(1.5, 1.5)
+
+[node name="RotatingRollerObstacle" parent="." unique_id=2099775489 instance=ExtResource("3_o7c1a")]
+position = Vector2(659, 373.99997)
+rotation = 0.45412487
+speed = 60.0

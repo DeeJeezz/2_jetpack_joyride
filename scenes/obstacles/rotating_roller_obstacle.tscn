@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b4gl6bkhsh7qb"]
+
+[ext_resource type="PackedScene" uid="uid://cy7b0gmrms0av" path="res://scenes/obstacles/roller_obstacle.tscn" id="1_12kv1"]
+[ext_resource type="Script" uid="uid://dlubi7cfvc0mw" path="res://scripts/rotating_object.gd" id="2_mhuwg"]
+
+[node name="RotatingRollerObstacle" unique_id=1779643137 instance=ExtResource("1_12kv1")]
+script = ExtResource("2_mhuwg")

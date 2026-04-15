@@ -7,23 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://djor3l1b1jc7o" path="res://assets/img/background/middle.png" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bhjpvxfsff2le" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c5hoy3diuji6f" path="res://assets/img/background/front.png" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b7qw16lrbutdo" path="res://scenes/obstacles/patterns/obstacle_pattern_1.tscn" id="4_e1j6l"]
 [ext_resource type="AudioStream" uid="uid://cbd80xenws37t" path="res://assets/music/time_for_adventure.mp3" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bctis2qaldf38" path="res://assets/img/world/world_tileset.png" id="7_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://ll7jardj2esa" path="res://assets/img/spikes/vertical_axle.png" id="8_bt5mj"]
-[ext_resource type="Texture2D" uid="uid://ghnixpa3s58f" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_01.png" id="9_e1j6l"]
-[ext_resource type="Texture2D" uid="uid://d201q04vbhga5" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_02.png" id="10_pl11u"]
-[ext_resource type="Texture2D" uid="uid://fdpcl3gauq77" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_03.png" id="11_bhx41"]
+[ext_resource type="PackedScene" uid="uid://b2xrlx6yy00rl" path="res://scenes/obstacles/patterns/obstacle_pattern_2.tscn" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://bfkswcxyxhxp4" path="res://scenes/ui/hud.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bswywf4uyysvr" path="res://scenes/obstacles/patterns/obstacle_pattern_3.tscn" id="11_trtic"]
 [ext_resource type="PackedScene" uid="uid://dw0tdn1ne0ol8" path="res://scenes/ui/ui.tscn" id="12_dinhu"]
-[ext_resource type="Texture2D" uid="uid://bh5k8721lgqnr" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_04.png" id="12_qnb83"]
-[ext_resource type="Texture2D" uid="uid://cloj3q0iebb78" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_05.png" id="13_sww3w"]
-[ext_resource type="Texture2D" uid="uid://xsy566jjeren" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_06.png" id="14_suyxu"]
-[ext_resource type="Texture2D" uid="uid://duffu2igy3xen" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_07.png" id="15_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://c6t8ct1o6jhuv" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_08.png" id="16_qouja"]
-[ext_resource type="Texture2D" uid="uid://cgdcy8qogo55p" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_09.png" id="17_wljb1"]
-[ext_resource type="Texture2D" uid="uid://bxowyduvu73gq" path="res://assets/img/spikes/unavoidable_roller/unavoidable_spikes_just_roller_10.png" id="18_v2yb1"]
-[ext_resource type="Texture2D" uid="uid://bqyrmodg84psx" path="res://assets/img/spikes/vertical_base.png" id="19_js0lu"]
-[ext_resource type="PackedScene" uid="uid://fwlp5saf0dgf" path="res://scenes/obstacles/moving_object.tscn" id="20_gxtfn"]
+[ext_resource type="PackedScene" uid="uid://c23girpfsyma2" path="res://scenes/obstacles/patterns/obstacle_pattern_4.tscn" id="12_ir15t"]
+[ext_resource type="PackedScene" uid="uid://disciuwc8gne1" path="res://scenes/obstacles/patterns/obstacle_pattern_5.tscn" id="13_ca42v"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dinhu"]
 polygon = PackedVector2Array(1280, 680, 1280, 736, 0, 736, 0, 680)
@@ -161,99 +153,6 @@ texture = ExtResource("7_u5sy4")
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 sources/0 = SubResource("TileSetAtlasSource_gee14")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uhlpu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_e1j6l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_pl11u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bhx41")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_qnb83")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_sww3w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_suyxu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_sgl2t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_qouja")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_wljb1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_v2yb1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4to3r"]
-size = Vector2(32, 96)
-
-[sub_resource type="GDScript" id="GDScript_twgab"]
-script/source = "extends Node2D
-class_name ObstacleRandomizer
-
-
-@export_category(\"Settings\")
-@export var min_y: float
-@export var max_y: float
-
-@export_category(\"Nodes\")
-@export var target: Node2D
-@export var target_collision: CollisionShape2D
-
-
-func _ready() -> void:
-	target.position.y = randf_range(min_y, max_y)
-	var scale_modifier = randf_range(target.scale.y - 0.05, target.scale.y + 0.05)
-	target.scale.y = scale_modifier
-	target_collision.position = target.position
-	target_collision.scale += Vector2(scale_modifier, scale_modifier)
-"
-
-[sub_resource type="PackedScene" id="PackedScene_02fa5"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [],
-"names": PackedStringArray("ObstacleRandomizer", "Node2D", "script"),
-"node_count": 1,
-"node_ids": PackedInt32Array(1174221672),
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0),
-"variants": [SubResource("GDScript_twgab")],
-"version": 3
-}
-
-[sub_resource type="PackedScene" id="PackedScene_nepv3"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("StaticRollingSpike", "StaticBody2D", "Obstacle", "disable_mode", "collision_layer", "collision_mask", "VerticalAxle", "Sprite2D", "position", "scale", "texture", "AnimatedSprite2D", "AnimatedSprite2D", "position", "scale", "sprite_frames", "autoplay", "frame_progress", "VerticalBase", "Sprite2D", "position", "scale", "texture", "flip_v", "SpikeCollisionShape2D", "CollisionShape2D", "position", "shape", "BaseCollisionPolygon2D", "CollisionPolygon2D", "position", "polygon", "MovingObject", "position", "speed", "obstacle_object", "ObstacleRandomizer", "min_y", "max_y", "target", "target_collision"),
-"node_count": 8,
-"node_ids": PackedInt32Array(392667159, 83751527, 1189224647, 257690331, 873446075, 1638860340, 1614815954, 1174221672),
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 3, 0, 4, 1, 5, 2, 1, 2, 1073741824, 0, 7, 6, -1, 3, 8, 3, 9, 4, 10, 5, 0, 1073741825, 0, 12, 11, -1, 5, 13, 6, 14, 7, 15, 8, 16, 9, 17, 10, 0, 1073741826, 0, 19, 18, -1, 4, 20, 11, 21, 12, 22, 13, 23, 14, 0, 1073741827, 0, 25, 24, -1, 2, 26, 15, 27, 16, 0, 1073741828, 0, 29, 28, -1, 2, 30, 17, 31, 18, 0, 1073741829, 0, 2147483647, 32, 19, 3, 33, 20, 34, 21, 1073741859, 22, 0, 1073741830, 0, 2147483647, 36, 23, 4, 37, 24, 38, 25, 1073741863, 26, 1073741864, 27, 0),
-"variants": [1, 2, 4, Vector2(0, 78.6), Vector2(0.2, 0.23908794), ExtResource("8_bt5mj"), Vector2(0, 104), Vector2(0.2, 0.2), SubResource("SpriteFrames_uhlpu"), "default", 0.33074254, Vector2(0, 10.6), Vector2(0.2, 0.2), ExtResource("19_js0lu"), true, Vector2(0, 104), SubResource("RectangleShape2D_4to3r"), Vector2(0, 85.5), PackedVector2Array(-28, -85.5, 28, -85.5, 17, -64.5, 7, -64.5, 7, 66.5, -8, 66.5, -8, -64.5, -17, -64.5), ExtResource("20_gxtfn"), Vector2(0, 106.600006), 600.0, NodePath(".."), SubResource("PackedScene_02fa5"), 104.0, 200.0, NodePath("../AnimatedSprite2D"), NodePath("../SpikeCollisionShape2D")],
-"version": 3
-}
-
 [node name="Game" type="Node2D" unique_id=415042533]
 
 [node name="Background" type="Parallax2D" parent="." unique_id=1112484232]
@@ -312,11 +211,12 @@ position = Vector2(410, 638)
 
 [node name="Pickables" type="Node2D" parent="." unique_id=1031005739]
 
-[node name="GameManager" parent="." unique_id=980185709 node_paths=PackedStringArray("parallaxes", "obstacles_container", "hud", "ui") instance=ExtResource("1_lnu2h")]
+[node name="GameManager" parent="." unique_id=980185709 node_paths=PackedStringArray("distance_timer", "obstacle_spawn_timer", "obstacles_container", "hud", "ui") instance=ExtResource("1_lnu2h")]
 process_mode = 3
 position = Vector2(1042, 610)
-parallaxes = [NodePath("../Background"), NodePath("../MiddleGround"), NodePath("../Foreground"), NodePath("../Ground")]
-edge_obstacle_scenes = Array[PackedScene]([SubResource("PackedScene_nepv3")])
+distance_timer = NodePath("DistanceTimer")
+obstacle_spawn_timer = NodePath("ObstacleSpawnTimer")
+obstacle_scenes = Array[PackedScene]([ExtResource("4_e1j6l"), ExtResource("10_kvuet"), ExtResource("11_trtic"), ExtResource("12_ir15t"), ExtResource("13_ca42v")])
 obstacles_container = NodePath("../Obstacles")
 hud = NodePath("../HUD")
 ui = NodePath("../UI")
@@ -324,7 +224,10 @@ ui = NodePath("../UI")
 [node name="DistanceTimer" type="Timer" parent="GameManager" unique_id=2056598617]
 process_mode = 1
 wait_time = 0.1
-autostart = true
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="GameManager" unique_id=1406872570]
+process_mode = 1
+one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=173291066]
 stream = ExtResource("6_p57ef")
@@ -339,3 +242,4 @@ energy = 0.35
 blend_mode = 1
 
 [connection signal="timeout" from="GameManager/DistanceTimer" to="GameManager" method="_on_meter_passed"]
+[connection signal="timeout" from="GameManager/ObstacleSpawnTimer" to="GameManager" method="_on_obstacle_spawn_timer_timeout"]
