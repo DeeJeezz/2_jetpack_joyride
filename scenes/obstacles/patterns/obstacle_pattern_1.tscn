@@ -9,7 +9,7 @@ script = ExtResource("1_oku8l")
 metadata/_custom_type_script = "uid://dswpx65548tij"
 
 [node name="RollerObstacle" parent="." unique_id=1779643137 instance=ExtResource("2_qm1lf")]
-position = Vector2(149.99998, 616.99994)
+position = Vector2(155, 565)
 rotation = 0.08807328
 
 [node name="RollerObstacle3" parent="." unique_id=1815331491 instance=ExtResource("2_qm1lf")]

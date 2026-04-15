@@ -57,6 +57,10 @@ func _spawn_obstacle() -> void:
 	var obstacle_scene: PackedScene = obstacle_scenes.pick_random()
 	var obstacle: MovingObject = obstacle_scene.instantiate()
 	obstacle.position.x = _screen_size.x + GameGlobals.base_game_speed
+	if randf() > 0.5:
+		obstacle.rotation_degrees = 180
+		obstacle.position.x *= 2
+		obstacle.position.y = _screen_size.y
 	obstacles_container.add_child(obstacle)
 	obstacle_spawn_timer.start()
 
@@ -68,7 +72,7 @@ func _on_coin_pickup() -> void:
 	
 func _on_meter_passed() -> void:
 	_score += 1
-	if _score % 100 == 0:
+	if _score % 25 == 0:
 		GameGlobals.increase_game_speed()
 		_setup_timers()
 

@@ -5,7 +5,7 @@ class_name Player
 const _FLOOR_GROUP_NAME: String = "Floor"
 const _CEILING_GROUP_NAME: String = "Ceiling"
 const _OBSTACLE_GROUP_NAME: String = "Obstacle"
-const JETPACK_VELOCITY: float = 2100
+const JETPACK_VELOCITY: float = 2250
 
 
 @export var animated_sprite: AnimatedSprite2D
