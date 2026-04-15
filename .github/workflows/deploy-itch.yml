@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  GODOT_VERSION: 4.6.1
+  GODOT_VERSION: 4.6.2
   ITCH_GAME: ${{ vars.ITCH_USER_NAME }}/${{ vars.ITCH_GAME_NAME }}
 
 jobs:
