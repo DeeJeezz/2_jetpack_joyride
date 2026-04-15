@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://djor3l1b1jc7o" path="res://assets/img/background/middle.png" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bhjpvxfsff2le" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c5hoy3diuji6f" path="res://assets/img/background/front.png" id="3_vtaks"]
-[ext_resource type="PackedScene" uid="uid://b7qw16lrbutdo" path="res://scenes/obstacles/patterns/obstacle_pattern_1.tscn" id="4_e1j6l"]
 [ext_resource type="AudioStream" uid="uid://cbd80xenws37t" path="res://assets/music/time_for_adventure.mp3" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bctis2qaldf38" path="res://assets/img/world/world_tileset.png" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://ll7jardj2esa" path="res://assets/img/spikes/vertical_axle.png" id="8_bt5mj"]
@@ -287,9 +286,6 @@ texture = ExtResource("3_vtaks")
 occluder = SubResource("OccluderPolygon2D_dinhu")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=2065923773]
-
-[node name="ObstaclePattern1" parent="Obstacles" unique_id=367206270 instance=ExtResource("4_e1j6l")]
-position = Vector2(1520, 0)
 
 [node name="Ground" type="Parallax2D" parent="." unique_id=1060102143]
 repeat_size = Vector2(1280, 0)

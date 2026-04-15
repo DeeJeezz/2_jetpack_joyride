@@ -120,7 +120,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
 radius = 16.0
-height = 80.0
+height = 68.0
 
 [sub_resource type="Gradient" id="Gradient_smehm"]
 offsets = PackedFloat32Array(0, 0.4157025, 1)
@@ -146,23 +146,22 @@ jump_sfx = NodePath("JumpSFX")
 death_sfx = NodePath("DeathSFX")
 
 [node name="FlyParticles" type="GPUParticles2D" parent="." unique_id=872637772]
-position = Vector2(-14, 3)
-emitting = false
+position = Vector2(0, 1)
 amount = 25
-sub_emitter = NodePath("GPUParticles2D")
+sub_emitter = NodePath("SubEmitter")
 texture = ExtResource("6_fjrip")
 lifetime = 0.5
-preprocess = 2.0
 fixed_fps = 0
 interpolate = false
 collision_base_size = 0.0
+trail_enabled = true
 process_material = ExtResource("7_smehm")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="FlyParticles" unique_id=9020290]
+[node name="SubEmitter" type="GPUParticles2D" parent="FlyParticles" unique_id=9020290]
 emitting = false
 amount = 50
 texture = ExtResource("6_fjrip")
-lifetime = 0.5
+lifetime = 0.25
 preprocess = 0.5
 fixed_fps = 0
 interpolate = false

@@ -22,6 +22,7 @@ var _is_on_floor: bool = true
 
 func _ready() -> void:
 	animated_sprite.play("run")
+	fly_particles.emitting = false
 
 
 func _play_animation(animation_name: String) -> void:
@@ -66,6 +67,7 @@ func _on_body_entered(body: Node2D) -> void:
 	# Touch floor.
 	elif body.is_in_group(_FLOOR_GROUP_NAME):
 		_is_on_floor = true
+		linear_velocity.y = 0
 	# Touch ceiling.
 	elif body.is_in_group(_CEILING_GROUP_NAME):
 		linear_velocity.y = get_gravity().y / 2.5
