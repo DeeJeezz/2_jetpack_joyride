@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://0xih20gx71a8"]
 
+[ext_resource type="Script" uid="uid://bxvamgy81rpsg" path="res://scripts/parallax_background.gd" id="1_e1j6l"]
 [ext_resource type="Texture2D" uid="uid://erjbol4a35tk" path="res://assets/img/background/back.png" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://iud21d8rqv6m" path="res://scenes/game_manager.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://byxlhudhrxv3n" path="res://scenes/floor.tscn" id="1_yqjtg"]
@@ -257,7 +258,8 @@ _bundled = {
 
 [node name="Background" type="Parallax2D" parent="." unique_id=1112484232]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-100, 0)
+script = ExtResource("1_e1j6l")
+speed_multiplier = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1387986042]
 position = Vector2(640, 360.00006)
@@ -266,7 +268,8 @@ texture = ExtResource("1_gee14")
 
 [node name="MiddleGround" type="Parallax2D" parent="." unique_id=477560740]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-200, 0)
+script = ExtResource("1_e1j6l")
+speed_multiplier = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="MiddleGround" unique_id=1651982927]
 position = Vector2(640, 359.99994)
@@ -275,7 +278,7 @@ texture = ExtResource("2_0tnpc")
 
 [node name="Foreground" type="Parallax2D" parent="." unique_id=1366730331]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-300, 0)
+script = ExtResource("1_e1j6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground" unique_id=249614995]
 position = Vector2(639.99994, 360)
@@ -289,7 +292,7 @@ occluder = SubResource("OccluderPolygon2D_dinhu")
 
 [node name="Ground" type="Parallax2D" parent="." unique_id=1060102143]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-600, 0)
+script = ExtResource("1_e1j6l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Ground" unique_id=1711254074]
 scale = Vector2(2, 2)

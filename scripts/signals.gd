@@ -7,3 +7,6 @@ signal meter_passed
 # UI signals.
 signal restart_game
 signal quit_game
+
+
+signal game_speed_increased

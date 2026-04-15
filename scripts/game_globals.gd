@@ -9,6 +9,8 @@ var record_score: int = 0
 var current_coins: int = 0
 
 
+var base_game_speed: float = 600.0
+
 
 func start_game() -> void:
 	SaveManager.load_last_session()
@@ -27,3 +29,8 @@ func save_game() -> void:
 			"max_score": record_score,
 		}
 	)
+
+
+func increase_game_speed() -> void:
+	base_game_speed += 100
+	Signals.game_speed_increased.emit()

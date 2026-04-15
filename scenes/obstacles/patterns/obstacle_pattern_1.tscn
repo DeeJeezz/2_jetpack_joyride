@@ -45,7 +45,6 @@ _data = {
 
 [node name="ObstaclePattern1" type="Node2D" unique_id=367206270]
 script = ExtResource("1_oku8l")
-speed = 600.0
 metadata/_custom_type_script = "uid://dswpx65548tij"
 
 [node name="RollerObstacle" type="StaticBody2D" parent="." unique_id=1821367024 groups=["Obstacle"]]

@@ -41,7 +41,6 @@ func _ready() -> void:
 	# Connecting signals.
 	Signals.coin_pickup.connect(_on_coin_pickup)
 	Signals.game_over.connect(_on_game_over)
-	Signals.meter_passed.connect(_on_meter_passed)
 	Signals.restart_game.connect(_on_restart_game)
 	Signals.quit_game.connect(_on_quit_game)
 
@@ -53,6 +52,8 @@ func _on_coin_pickup() -> void:
 	
 func _on_meter_passed() -> void:
 	_score += 1
+	if _score % 100 == 0:
+		GameGlobals.increase_game_speed()
 
 
 func _on_game_over() -> void:

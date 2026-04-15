@@ -1,8 +1,6 @@
 extends Node2D
 class_name MovingObject
 
-@export var speed: float = 400.0
-
 var _destroy_border_x: float = -50.0
 
 
@@ -11,7 +9,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	position.x -= speed * delta
+	position.x -= GameGlobals.base_game_speed * delta
 	if position.x <= _destroy_border_x:
 		queue_free()
  
