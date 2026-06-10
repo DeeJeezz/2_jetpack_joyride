@@ -15,6 +15,9 @@ class_name GameManager
 @export var ui: UI
 
 
+var _game_started: bool = false
+
+
 var _screen_size: Vector2
 var _coins: int:
 	get:
@@ -32,6 +35,7 @@ var _score: int:
 
 
 func _ready() -> void:
+	get_tree().paused = true
 	# Setup game.
 	_score = 0
 	GameGlobals.start_game()
@@ -46,6 +50,18 @@ func _ready() -> void:
 	Signals.game_over.connect(_on_game_over)
 	Signals.restart_game.connect(_on_restart_game)
 	Signals.quit_game.connect(_on_quit_game)
+	
+	
+func _input(event: InputEvent) -> void:
+	if !_game_started:
+		if event.is_action_pressed("jump"):
+			_start_game()
+
+
+func _start_game() -> void:
+	ui.start_game()
+	_game_started = true
+	get_tree().paused = false
 
 
 func _setup_timers() -> void:

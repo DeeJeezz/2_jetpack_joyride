@@ -5,3 +5,6 @@
 
 [node name="RotatingRollerObstacle" unique_id=1779643137 instance=ExtResource("1_12kv1")]
 script = ExtResource("2_mhuwg")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=776796527]
+visible = true

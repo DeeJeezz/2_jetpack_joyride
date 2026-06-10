@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://cy7b0gmrms0av"]
 
 [ext_resource type="SpriteFrames" uid="uid://cx6kwj44whtf7" path="res://resources/animations/roller/roller_animation.tres" id="1_yf3ke"]
+[ext_resource type="Texture2D" uid="uid://cq04po6tteovh" path="res://resources/textures/point_light.tres" id="2_xo3oq"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf3ke"]
+polygon = PackedVector2Array(-16, -67, 17, -67, 16, 68, -16, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i43wg"]
 size = Vector2(54, 137)
 
 [node name="RollerObstacle" type="StaticBody2D" unique_id=1779643137 groups=["Obstacle"]]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1335966635]
+occluder = SubResource("OccluderPolygon2D_yf3ke")
 
 [node name="Roller" type="AnimatedSprite2D" parent="." unique_id=1367073967]
 scale = Vector2(0.25, 0.28125006)
@@ -16,3 +23,8 @@ frame_progress = 0.38966447
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=776796527]
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_i43wg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=114088803]
+scale = Vector2(2.65625, 2.65625)
+blend_mode = 2
+texture = ExtResource("2_xo3oq")

@@ -5,6 +5,10 @@
 
 https://20_games_challenge.gitlab.io/games/jetpack/
 
+## Where to play
+
+Itch.io - https://deejeezz.itch.io/jetpack-joyride
+
 ## Description
 
 Jetpack Joyride is a side-scrolling endless mobile game from 2011. 

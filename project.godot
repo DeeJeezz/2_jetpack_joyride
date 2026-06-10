@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="2_jetpack_joyride"
+config/version="v0.1.0"
 run/main_scene="uid://0xih20gx71a8"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

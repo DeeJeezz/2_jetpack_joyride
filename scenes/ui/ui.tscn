@@ -6,9 +6,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5cxw"]
 bg_color = Color(0.13007864, 0.13007876, 0.13007867, 0.73333335)
 
-[node name="UI" type="CanvasLayer" unique_id=745449628 node_paths=PackedStringArray("game_over_panel", "current_score_label", "max_score_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aac20"]
+bg_color = Color(0, 0, 0, 0.09019608)
+
+[node name="UI" type="CanvasLayer" unique_id=745449628 node_paths=PackedStringArray("game_over_panel", "start_game_panel", "current_score_label", "max_score_label")]
 script = ExtResource("1_f5cxw")
 game_over_panel = NodePath("GameOverPanel")
+start_game_panel = NodePath("StartGamePanel")
 current_score_label = NodePath("GameOverPanel/CurrentScoreLabel")
 max_score_label = NodePath("GameOverPanel/MaxScoreLabel")
 
@@ -91,6 +95,63 @@ text = "Restart"
 [node name="QuitButton" type="Button" parent="GameOverPanel/VBoxContainer" unique_id=531111626]
 layout_mode = 2
 text = "Quit"
+
+[node name="StartGamePanel" type="Panel" parent="." unique_id=1772498279]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aac20")
+
+[node name="GameNameLabel" type="Label" parent="StartGamePanel" unique_id=826032291]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -130.0
+offset_right = 150.5
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jetpack Joyride"
+label_settings = ExtResource("1_u7n8c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxScoreLabel" type="Label" parent="StartGamePanel" unique_id=232495382]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Max score: 1234 m"
+
+[node name="PressToStartLabel" type="Label" parent="StartGamePanel" unique_id=1734838033]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 140.0
+offset_right = 90.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press \"Space\" to start..."
 
 [connection signal="button_down" from="GameOverPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="GameOverPanel/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

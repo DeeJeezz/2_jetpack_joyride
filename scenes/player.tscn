@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8faidc8ja1vq" path="res://assets/img/particles/spark_particle2.png" id="6_fjrip"]
 [ext_resource type="Material" uid="uid://drrtbpvbq4otl" path="res://resources/particles/new_particle_process_material.tres" id="7_smehm"]
 [ext_resource type="Material" uid="uid://bewqos8cwhmcc" path="res://resources/particles/subemmitter_new_particle_process_material.tres" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://cq04po6tteovh" path="res://resources/textures/point_light.tres" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -122,15 +123,18 @@ animations = [{
 radius = 16.0
 height = 68.0
 
-[sub_resource type="Gradient" id="Gradient_smehm"]
-offsets = PackedFloat32Array(0, 0.4157025, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.49411765, 1, 1, 1, 0)
+[sub_resource type="Animation" id="Animation_ur7pv"]
+length = 0.001
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_smehm"]
-gradient = SubResource("Gradient_smehm")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.9, 0.9)
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "start_game"
+length = 7.5666666
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2wvv"]
+_data = {
+&"RESET": SubResource("Animation_ur7pv"),
+&"start_game": SubResource("Animation_y4r1p")
+}
 
 [node name="Player" type="RigidBody2D" unique_id=2068696538 node_paths=PackedStringArray("animated_sprite", "fly_particles", "jump_sfx", "death_sfx")]
 collision_layer = 4
@@ -173,8 +177,7 @@ process_material = ExtResource("8_smehm")
 position = Vector2(0, -4.7683716e-07)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fulsm")
-animation = &"jump"
-autoplay = "run"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=642326015]
 shape = SubResource("CapsuleShape2D_3vyb7")
@@ -190,6 +193,9 @@ volume_db = -10.0
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=906648848]
 scale = Vector2(1.84375, 1.84375)
 blend_mode = 2
-texture = SubResource("GradientTexture2D_smehm")
+texture = ExtResource("9_ur7pv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1720999365]
+libraries/ = SubResource("AnimationLibrary_d2wvv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
